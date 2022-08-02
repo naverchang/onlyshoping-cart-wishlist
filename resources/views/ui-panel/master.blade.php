@@ -28,6 +28,9 @@
 
   </head>
   <body>
+
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <div class="container-fluid">
     <a class="navbar-brand" href="#">E-shop</a>
@@ -53,7 +56,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{url('/wishlist')}}">WishList
 
-          <span class="badge badge-pill bg-success">0</span>
+          <span class="badge badge-pill bg-success wishlist-count">0</span>
           </a>
         </li>
 
@@ -134,6 +137,8 @@
 <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+<script src="{{asset('js/checkout.js')}}"></script>
+
 
 
 

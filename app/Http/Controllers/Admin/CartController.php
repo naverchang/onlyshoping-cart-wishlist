@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Wishlist;
+
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -77,6 +79,7 @@ class CartController extends Controller
        }
 
     public function deleteproduct(Request $request){
+        
 
         if(Auth::check()){
 
@@ -100,6 +103,25 @@ class CartController extends Controller
        
 
        } 
+
+
+     public function cartcount(){
+
+       $cartcount =Cart::where('user_id', Auth::id())->count();
+       return response()->json(['count'=>$cartcount]);
+
+
+
+     }
+
+     public function wishlistcount(){
+
+        $wishlistcount =Wishlist::where('user_id', Auth::id())->count();
+        return response()->json(['count'=>$wishlistcount]);
+ 
+ 
+ 
+      }
 
       
 }

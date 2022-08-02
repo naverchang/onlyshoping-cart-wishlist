@@ -26,6 +26,8 @@ Route::get('/category/{cate_slug}/{prod_slug}', [App\Http\Controllers\UiControll
 
 
 
+Route::get('load-cart-data', [App\Http\Controllers\Admin\CartController::class, 'cartcount']);
+Route::get('load-wishlist-count', [App\Http\Controllers\Admin\CartController::class, 'wishlistcount']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -47,9 +49,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/view-order/{id}', [App\Http\Controllers\Admin\OrderController::class, 'view']);
     Route::put('/update-order/{id}', [App\Http\Controllers\Admin\OrderController::class, 'updateorder']);
     Route::get('/wishlist', [App\Http\Controllers\Admin\WishlistController::class, 'index']);
+    Route::post('/proceed-to-pay', [App\Http\Controllers\Admin\CheckoutController::class, 'razorpaycheck']);
+    Route::post('/place_order', [App\Http\Controllers\Admin\CheckoutController::class, 'placeorder']);
+
+
     
-
-
+    
+    
 
 
 
